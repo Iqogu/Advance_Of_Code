@@ -63,7 +63,7 @@ let main () =
         begin
           match calc line k with
           | None ->
-              printf "Line %d: [%s] -> Ligne trop courte\n" line_number line
+              Printf.printf "Line %d: [%s] -> Ligne trop courte\n" line_number line
           | Some value ->
               total_sum := !total_sum + value
         end;
@@ -72,9 +72,9 @@ let main () =
         close_in ic
     in
     loop 1;
-    printf "TOTAL FINAL DE L'ADDITION : %d\n" !total_sum
+    Printf.printf "TOTAL FINAL DE L'ADDITION : %d\n" !total_sum
   with
   | Sys_error msg ->
-      eprintf "Erreur fichier : %s\n" msg
+      Printf.printf "Erreur fichier : %s\n" msg
 
 let () = main ()
