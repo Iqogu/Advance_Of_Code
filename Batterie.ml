@@ -52,7 +52,7 @@ let () =
         begin
           match calc line with (* appel calc pour chaque ligne *)
           | None ->
-              printf "Line %d: [%s] -> Analyse échouée\n" line_number line
+              Printf.printf "Line %d: [%s] -> Analyse échouée\n" line_number line
           | Some value ->
               total_sum := !total_sum + value 
         end;
@@ -61,8 +61,8 @@ let () =
         close_in ic
     in
     loop 1;
-    printf "TOTAL FINAL DE L'ADDITION : %d\n" !total_sum
+    Printf.printf "TOTAL FINAL DE L'ADDITION : %d\n" !total_sum
   with
   | Sys_error msg ->
-      eprintf "Erreur fichier : %s\n" msg
+      Printf.printf "Erreur fichier : %s\n" msg
 
